@@ -1,0 +1,79 @@
+Q.2 Explain Normalization techniques (along with an example) as discussed during Session.
+
+*******************************SOLUTION**************************************************
+Normalization is the process of organizing data in a database. 
+This includes creating tables and establishing relationships between those tables
+according to rules designed both to protect the data and to make the database more flexible by eliminating redundancy and inconsistent dependency.
+4 types of Nf
+1. 1NF
+2. 2NF
+3. 3NF
+4. BCNF( Boyce Codd Normal Form)
+
+
+1. 1NF: FIRSH FORM OF NORMALIZTION FORM:
+
+* REDUCE GROUP OF  REPEATING DATA
+* EACH DATA HAS A PRIMARY KEY
+* First normal form disallows the multi-valued attribute, composite attribute, and their combinations.
+
+2. 2NF: SECOND NORMALIZATION FORM
+
+*Eliminate redundant data
+*Foriegn KEY
+
+3. 3NF : Third NORMALIZATION FORM
+*Eliminate fields that do not depend on the key.
+
+4.BCNF:Boyce Codd Normal Form
+
+
+EXAMPLE:
+Unnormalized table:
+
+TABLE 1
+Student#	Advisor	  Adv-Room	Class1	Class2	Class3
+1022	       Jones	   412	        101-07	143-01	159-02
+4123	       Smith	   216	        201-01	211-02	214-01
+
+
+1. 1nf
+
+Student#	Advisor	 Adv-Room	Class#
+1022	        Jones	   412	      101-07
+1022	        Jones 	   412	      143-01
+1022	        Jones	   412	      159-02
+4123	        Smith	   216	      201-01
+4123	        Smith      216	      211-02
+4123	        Smith	   216        214-01
+
+2. 2NF
+
+Students:
+
+TABLE 3
+Student#	Advisor 	Adv-Room
+1022	         Jones	         412
+4123	          Smith	         216
+
+TABLE 4
+Student#	Class#
+1022       	101-07
+1022	        143-01
+1022       	159-02
+4123       	201-01
+4123	        211-02
+4123	        214-01
+
+3. 3NF
+Table 5
+
+Student#	Advisor
+1022	        Jones
+4123	        Smith
+Faculty:
+
+TABLE 6
+Name	Room	Dept
+Jones	412	42
+Smith	216	42
